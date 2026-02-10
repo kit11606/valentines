@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Will You Be My Valentine?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      padding: 30px 25px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      max-width: 320px;
+      width: 90%;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 25px;
+    }
+
+    .buttons {
+      position: relative;
+      height: 120px;
+    }
+
+    button {
+      border: none;
+      padding: 12px 24px;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    #yesBtn {
+      background: #fff;
+      color: #ff4d6d;
+      margin-right: 10px;
+    }
+
+    #noBtn {
+      background: transparent;
+      border: 2px solid #fff;
+      color: #fff;
+      position: absolute;
+    }
+
+    .heart {
+      font-size: 2rem;
+      animation: float 2s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="heart">❤️</div>
+    <h1>Will you be my Valentine?</h1>
+    <p>I promise snacks, laughs, and all my attention 💕</p>
+
+    <div class="buttons">
+      <button id="yesBtn" onclick="yesClicked()">Yes 💖</button>
+      <button id="noBtn">No 🙃</button>
+    </div>
+  </div>
+
+  <script>
+      const noBtn = document.getElementById("noBtn");
+
+  const pleadMessages = [
+    "Please say yes 🥺💗",
+    "Are you really gonna break my heart? 😭",
+    "Come on… just say yes 😔❤️",
+    "Jagiya!!! 😩🍫",
+    "This button doesn't want you to say no 😌"
+  ];
+
+  noBtn.addEventListener("mouseover", pleadAndMove);
+  noBtn.addEventListener("click", pleadAndMove);
+
+  function pleadAndMove() {
+    const message =
+      pleadMessages[Math.floor(Math.random() * pleadMessages.length)];
+
+    alert(message);
+
+    const x = Math.random() * 200 - 100;
+    const y = Math.random() * 80 - 40;
+    noBtn.style.transform = `translate(${x}px, ${y}px)`;
+  }
+
+  function yesClicked() {
+    document.body.innerHTML = `
+      <div style="
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:100vh;
+        background:linear-gradient(135deg, #ff758c, #ff7eb3);
+        font-family:'Poppins', sans-serif;
+        color:white;
+        text-align:center;
+        padding:20px;
+      ">
+        <div>
+          <h1>You said YES 😭❤️</h1>
+          <p>I couldn't have asked for a better Valentine! Can't wait to see you my Jagiya!💐</p>
+        </div>
+      </div>
+    `;
+  }
+  </script>
+
+</body>
+</html>
